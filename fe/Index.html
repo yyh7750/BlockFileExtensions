@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 확장자 차단</title>
+</head>
+<body>
+    <hr>
+    <h2>◎ 파일 확장자 차단</h2>
+    <hr>
+    <p>파일확장자에 따라 특정 형식의 파일을 첨부하거나 전송하지 못하도록 제한</p>
+
+    <table>
+        <tr>
+            <td>고정 확장자</td>
+            <td>
+                <label><input type="checkbox" name="extentions" value="bat" onclick="addFixedExtension(this.value, 0)"> bat</label>
+                <label><input type="checkbox" name="extentions" value="cmd" onclick="addFixedExtension(this.value, 0)"> cmd</label>
+                <label><input type="checkbox" name="extentions" value="com" onclick="addFixedExtension(this.value, 0)"> com</label>
+                <label><input type="checkbox" name="extentions" value="cpl" onclick="addFixedExtension(this.value, 0)"> cpl</label>
+                <label><input type="checkbox" name="extentions" value="exe" onclick="addFixedExtension(this.value, 0)"> exe</label>
+                <label><input type="checkbox" name="extentions" value="scr" onclick="addFixedExtension(this.value, 0)"> scr</label>
+                <label><input type="checkbox" name="extentions" value="js" onclick="addFixedExtension(this.value, 0)"> js</label>
+            </td>
+        </tr>
+        <tr>
+            <td>커스텀 확장자</td>
+            <td>
+                <input type="text" id="custom-extension">
+                <button onclick="addCustomExtension()">추가</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="border: 1px solid black; height: 200px;">
+                <span id="custom-extension-cnt"></span>/200 <br>
+                <div id="custom-extension-div"></div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var httpRequest;
+        var url = "http://localhost:8080";
+        var checkArray = [];
+        var data = {
+            "extension": null,
+            "type": null
+        }
+
+        window.onload = function () {
+            getFixedExtensions();
+            getCustomExtensions();
+        }
+    </script>
+    <script type="text/javascript" src="Ajax.js"></script>
+</body>
+</html>
