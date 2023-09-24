@@ -19,10 +19,8 @@ public class APIController {
 
     @PostMapping("/fix-extension")
     public ResponseEntity<Void> addFixedFileExtension(@RequestBody BlockFileExtensionDTO dto) {
-        if (service.addFixedFileExtension(dto)) {
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        service.addFixedFileExtension(dto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/fix-extension")
@@ -32,10 +30,8 @@ public class APIController {
 
     @PostMapping("/custom-extension")
     public ResponseEntity<Void> addCustomFileExtension(@RequestBody BlockFileExtensionDTO dto) {
-        if (service.addBlockCustomFileExtension(dto)) {
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        }
-        throw new RuntimeException("이미 추가된 커스텀 확장자입니다.");
+        service.addBlockCustomFileExtension(dto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/custom-extension")
