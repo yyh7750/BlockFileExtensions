@@ -59,6 +59,7 @@ public class BlockFileExtensionServiceImpl implements BlockFileExtensionService 
             Optional<BlockFileExtension> blockExtension = repository.findById(dto.getExtension());
 
             if (blockExtension.isPresent()) {
+                deleteBlockFileExtension(dto);
                 throw new CustomException(ErrorCode.DUPLICATE_RESOURCE);
             }
 
