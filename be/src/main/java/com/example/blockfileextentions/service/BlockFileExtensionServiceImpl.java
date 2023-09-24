@@ -34,7 +34,7 @@ public class BlockFileExtensionServiceImpl implements BlockFileExtensionService 
             }
         }
 
-        repository.save(new BlockFileExtension(dto.getExtension(), dto.getType()));
+        repository.save(new BlockFileExtension(dto.getExtension(), 0));
         return true;
     }
 
