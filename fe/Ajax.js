@@ -128,7 +128,7 @@ function deleteCustomExtension(extension) {
     httpRequest.send(JSON.stringify(data));
 
     httpRequest.onload = function () {
-        if (this.status == 409) {
+        if (this.status == 204) {
             alert("해제되었습니다.");
             location.reload();
         }
