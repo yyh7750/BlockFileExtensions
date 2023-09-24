@@ -11,7 +11,8 @@ function addFixedExtension(extension, type) {
     httpRequest.send(JSON.stringify(data));
 
     httpRequest.onload = function () {
-        if (this.status != 201 && this.status != 204) {
+        if (this.status != 201) {
+            console.log(this);
             alert("고정 확장자에 포함되어 있는 확장자입니다. 리스트에서 해제되었습니다.");
             location.reload();
         }
@@ -127,7 +128,7 @@ function deleteCustomExtension(extension) {
     httpRequest.send(JSON.stringify(data));
 
     httpRequest.onload = function () {
-        if (this.status == 204) {
+        if (this.status == 409) {
             alert("해제되었습니다.");
             location.reload();
         }
