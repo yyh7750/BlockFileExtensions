@@ -74,8 +74,13 @@ function getFixedExtensions() {
 function addCustomExtension() {
     let inputValue = document.getElementById("custom-extension").value;
 
+    if (!regex.test(inputValue)) {
+        alert("공백 불가, 영어만 입력 가능합니다.");
+        document.getElementById("custom-extension").value = "";
+        return;
+    }
+
     if (checkArray.includes(inputValue)) {
-        console.log("adsfasdf");
         addFixedExtension(inputValue, 1);
         return;
     }

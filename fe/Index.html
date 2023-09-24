@@ -37,7 +37,7 @@
         <tr>
             <td>커스텀 확장자</td>
             <td>
-                <input type="text" id="custom-extension">
+                <input type="text" id="custom-extension" maxlength="20" placeholder="1 ~ 20자 허용">
                 <button onclick="addCustomExtension()">추가</button>
             </td>
         </tr>
@@ -58,6 +58,7 @@
             "extension": null,
             "type": null
         }
+        var regex = /^[a-zA-Z]*$/;
 
         window.onload = function () {
             getFixedExtensions();
