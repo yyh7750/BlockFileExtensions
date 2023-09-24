@@ -20,15 +20,22 @@ public class BlockFileExtensionServiceImpl implements BlockFileExtensionService 
     private final BlockFileExtensionRepository repository;
 
     @Override
-    public void addFixedFileExtension(BlockFileExtensionDTO dto) {
+    public boolean addFixedFileExtension(BlockFileExtensionDTO dto) {
         Optional<BlockFileExtension> blockExtension = repository.findById(dto.getExtension());
 
         if (blockExtension.isPresent()) {
             repository.delete(blockExtension.get());
-            throw new CustomException(ErrorCode.DUPLICATE_RESOURCE);
+
+            if (dto.getType() == 1) {
+                throw new CustomException(ErrorCode.DUPLICATE_RESOURCE);
+            } //
+            else {
+                return false;
+            }
         }
 
         repository.save(new BlockFileExtension(dto.getExtension(), dto.getType()));
+        return true;
     }
 
     @Override

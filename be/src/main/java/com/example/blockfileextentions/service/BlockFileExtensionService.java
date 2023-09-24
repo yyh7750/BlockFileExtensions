@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface BlockFileExtensionService {
 
-    void addFixedFileExtension(BlockFileExtensionDTO dto);
+    boolean addFixedFileExtension(BlockFileExtensionDTO dto);
 
     List<BlockFileExtensionDTO> getFixedFileExtensions();
 

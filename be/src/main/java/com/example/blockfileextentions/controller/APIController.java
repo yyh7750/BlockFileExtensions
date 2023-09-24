@@ -19,8 +19,10 @@ public class APIController {
 
     @PostMapping("/fix-extension")
     public ResponseEntity<Void> addFixedFileExtension(@RequestBody BlockFileExtensionDTO dto) {
-        service.addFixedFileExtension(dto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        if (service.addFixedFileExtension(dto)) {
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/fix-extension")
