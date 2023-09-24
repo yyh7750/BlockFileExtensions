@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/block_file_extention?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: yyhj7424
+    url: ENC(BG+k0VqtPmlw3UOyQ4cysn32/OdkiAsJGtYZEyBVlhG3cA6iZqva4J6wMP3Y+hdGs1doIKGYQBpFfrmjxmnNbA4Fzdn6iNwV4whznko0mBIkHtvKGAnHFG5UMLh3K/dHgQrnAW9CS3ObqV34SHuO1w==)
+    username: ENC(Z4l6hSIyC1IIgskkSctbjg==)
+    password: ENC(/XfpxW7CMqcK3Ydp2+yALh8IUUDJcd2N)
   jpa:
     open-in-view: false
     show-sql: true
@@ -16,3 +16,9 @@ spring:
       hibernate:
         globally_quoted_identifiers: true
         format_sql: true
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator

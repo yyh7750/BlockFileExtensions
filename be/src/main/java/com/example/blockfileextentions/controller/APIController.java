@@ -1,6 +1,5 @@
 package com.example.blockfileextentions.controller;
 
-import com.example.blockfileextentions.model.BlockFileExtension;
 import com.example.blockfileextentions.model.BlockFileExtensionDTO;
 import com.example.blockfileextentions.model.CustomExtensionDTO;
 import com.example.blockfileextentions.service.BlockFileExtensionService;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(originPatterns = "http://localhost:8080")
+@RequestMapping("/api")
 public class APIController {
 
     private final BlockFileExtensionService service;
