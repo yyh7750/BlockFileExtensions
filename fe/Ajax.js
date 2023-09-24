@@ -92,9 +92,10 @@ function addCustomExtension() {
     httpRequest.send(JSON.stringify(data));
 
     httpRequest.onload = function () {
-        if (this.status == 201) {
-            location.reload();
+        if (this.status == 409) {
+            alert(JSON.parse(this.response).message);
         }
+        location.reload();
     }
 }
 
